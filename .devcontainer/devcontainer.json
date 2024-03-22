@@ -4,17 +4,13 @@
     "cpus": 4
   },
   "waitFor": "onCreateCommand",
-  "updateContentCommand": "pip install -r requirements.txt && python manage.py migrate",
-  "postCreateCommand": "cp .env.example .env",
+  // "updateContentCommand": "pip install -r requirements.txt && python manage.py migrate",
+  "updateContentCommand": "./.devcontainer/updateContentCommand.sh",	
+  //"postCreateCommand": "cp .env.example .env",
   "postAttachCommand": {
     "server": "python manage.py runserver"
   },
   "customizations": {
-    "codespaces": {
-      "openFiles": [
-        "hello_world/templates/index.html"
-      ]
-    },
     "vscode": {
       "extensions": [
         "ms-python.python"
@@ -27,5 +23,12 @@
       "onAutoForward": "openPreview"
     }
   },
-  "forwardPorts": [8000]
+  "forwardPorts": [8000],
+  "features": {
+		"ghcr.io/dhoeric/features/flyctl:1": {
+			// Must be manually specified because of: https://github.com/dhoeric/features/issues/25
+			// Find new version with: curl -s https://api.github.com/repos/superfly/flyctl/releases/latest | jq -r '.tag_name'
+			"version": "0.2.23"
+		}
+	  }
 }
