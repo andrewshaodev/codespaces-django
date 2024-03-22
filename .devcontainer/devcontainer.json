@@ -4,7 +4,6 @@
     "cpus": 4
   },
   "waitFor": "onCreateCommand",
-  // "updateContentCommand": "pip install -r requirements.txt && python manage.py migrate",
   "updateContentCommand": "./.devcontainer/updateContentCommand.sh",	
   //"postCreateCommand": "cp .env.example .env",
   "postAttachCommand": {
