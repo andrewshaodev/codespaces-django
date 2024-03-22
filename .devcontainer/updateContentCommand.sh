@@ -10,3 +10,4 @@
 # echo "alias fly='flyctl'" >> ~/.zshrc
 
 pip install -r requirements.txt
+python manage.py migrate
