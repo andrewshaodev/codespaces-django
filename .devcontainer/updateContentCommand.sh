@@ -8,3 +8,5 @@ echo "POSTGRES_HOST=localhost" >> .env
 
 echo "alias fly='flyctl'" >> ~/.bashrc
 echo "alias fly='flyctl'" >> ~/.zshrc
+
+pip install -r requirements.txt
