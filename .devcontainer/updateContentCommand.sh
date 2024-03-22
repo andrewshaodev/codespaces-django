@@ -8,8 +8,8 @@ echo "POSTGRES_HOST=localhost" >> .env
 echo "DEBUG=True" >> .env
 echo "ALLOWED_HOSTS=*" >> .env
 
-# echo "alias fly='flyctl'" >> ~/.bashrc
-# echo "alias fly='flyctl'" >> ~/.zshrc
+echo "alias fly='flyctl'" >> ~/.bashrc
+echo "alias fly='flyctl'" >> ~/.zshrc
 
 pip install -r requirements.txt
 python manage.py migrate
