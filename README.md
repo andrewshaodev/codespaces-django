@@ -1,17 +1,14 @@
-# GitHub Codespaces ♥️ Django
+# Codespaces Template for Django, PostGres and Fly.io
 
-Welcome to your shiny new Codespace running Django! We've got everything fired up and running for you to explore Django.
+This template can be used to create a development container for a Django application. It includes Django, Postgres, and the Fly.io command line application for pushing the application onto fly.io.
 
-You've got a blank canvas to work on from a git perspective as well. There's a single initial commit with the what you're seeing right now - where you go from here is up to you!
+It is based on the following [Django Template
+](https://github.com/github/codespaces-django)
 
-Everything you do here is contained within this one codespace. There is no repository on GitHub yet. If and when you’re ready you can click "Publish Branch" and we’ll create your repository and push up your project. If you were just exploring then and have no further need for this code then you can simply delete your codespace and it's gone forever.
-To collect static files:
+On creating a new Codespace, the container should automatically pip install the requirements.txt file and run django manage.py migrate. It will also write a .env file from the Github Secrets repository which, which you will have to set yourself to create environmental variables within the container. These could include the Django SECRET_KEY as well as Postgres configuration variables.
 
-```python
-python manage.py collectstatic
-```
-To run this application:
+It will also run the Django test server on creation.
 
-```python
-python manage.py runserver
-```
+Finally, it also includes the flyctl command line to allow you to deploy the application to the fly.io. Instructions can be found [here](https://fly.io/docs/django/)
+
+Using github actions to continiously deploy changes to the application on commit pushes can be found [here](https://fly.io/docs/app-guides/continuous-deployment-with-github-actions/)
