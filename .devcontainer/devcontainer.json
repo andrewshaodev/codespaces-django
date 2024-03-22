@@ -1,7 +1,7 @@
 {
   "dockerComposeFile": "docker-compose.yml",
   "service": "app",
-  "workspaceFolder": "${localWorkspaceFolder}",
+  "workspaceFolder": "/workspace",
   "hostRequirements": {
     "cpus": 4
   },
