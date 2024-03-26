@@ -4,15 +4,12 @@ cat <<EOF >> .env
 SECRET_KEY=$SECRET_KEY
 ALLOWED_HOSTS=*
 DEBUG=True
-DB_HOST=127.0.0.1
+DB_HOST=$POSTGRES_HOST
 DB_PORT=3306
-DB_DATABASE=""
-DB_USERNAME=""
-DB_PASSWORD=""
+DB_DATABASE=$POSTGRES_DB
+DB_USERNAME=$POSTGRES_USER
+DB_PASSWORD=$POSTGRES_PASSWORD
 EOF
 
 echo "alias fly='flyctl'" >> ~/.bashrc
 echo "alias fly='flyctl'" >> ~/.zshrc
-
-pip install -r requirements.txt
-python manage.py migrate
