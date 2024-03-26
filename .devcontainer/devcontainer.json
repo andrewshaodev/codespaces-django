@@ -1,12 +1,10 @@
 {
-  "image": "mcr.microsoft.com/devcontainers/universal:2",
-  "hostRequirements": {
-    "cpus": 4
-  },
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspace",
   "waitFor": "onCreateCommand",
-  // "updateContentCommand": "pip install -r requirements.txt && python manage.py migrate",
   "updateContentCommand": "./.devcontainer/updateContentCommand.sh",	
-  //"postCreateCommand": "cp .env.example .env",
+  "postCreateCommand": "pip install --user -r requirements.txt && python manage.py migrate",
   "postAttachCommand": {
     "server": "python manage.py runserver"
   },
@@ -19,8 +17,7 @@
   },
   "portsAttributes": {
     "8000": {
-      "label": "Application",
-      "onAutoForward": "openPreview"
+      "label": "Application"
     }
   },
   "forwardPorts": [8000],
@@ -30,5 +27,5 @@
 			// Find new version with: curl -s https://api.github.com/repos/superfly/flyctl/releases/latest | jq -r '.tag_name'
 			"version": "0.2.23"
 		}
-	  }
+	}
 }
